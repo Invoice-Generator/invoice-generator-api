@@ -1,5 +1,5 @@
-# invoice-generator-api
-A public API for generating invoice PDFs
+# Invoice Generator API
+For those times when you just need an invoice
 
 ## cURL Examples
 
