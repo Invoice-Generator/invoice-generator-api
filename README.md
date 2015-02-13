@@ -127,7 +127,7 @@ When a value is null or zero, the field will not be shown on the invoice. The ex
 `discounts`|Subtotal discounts|0
 `tax`|Tax|0
 `shipping`|Shipping|0
-`amount_paid`|Amount Paid|0
+`amount_paid`|Amount paid|0
 `notes`|Notes - any extra information not included elsewhere|*null*
 `terms`|Terms and conditions - all the details|*null*
 
