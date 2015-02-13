@@ -95,6 +95,7 @@ These parameters control the titles of the fields on the invoice template.
 `date_title`|Date
 `payment_terms_title`|Payment Terms
 `due_date_title`|Due Date
+`purchase_order_title`|Purchase Order
 `quantity_header`|Quantity
 `item_header`|Item
 `unit_cost_header`|Rate
