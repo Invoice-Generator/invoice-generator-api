@@ -17,8 +17,8 @@ The API is rate limited, however, it should be sufficient for a reasonable amoun
 
 ## Sample Projects using API
 
-- Go: generate invoices programatically
-- Ruby: generate invoices from Stripe webhooks
+- Go: [generate invoices programatically](https://github.com/Invoiced/go-invoice-generator-connector)
+- Ruby: [generate invoices from Stripe webhooks](https://github.com/Invoiced/ruby-stripe-invoice-generator)
 
 ## Examples
 
@@ -64,17 +64,76 @@ curl https://invoice-generator.com \
 
 ### VAT Example
 
-Here's a simple cURL example for generating invoices with VAT.
-
-TODO
-
-### Customizable Template
+Here's a simple cURL example for generating invoices with VAT:
 
 TODO
 
 ## Parameter Reference
 
-TODO
+### Invoice Options
+
+|Parameter|Description|Default Value
+|:--------|:----------|:------------
+currency|ISO 4217 3-digit code|USD
+fields|Hash that supports `discounts`, `tax, and `shipping` - *false* is disabled, *true* is flat rate, `%` is percentage rate|`tax` = `%`, `discounts` and `shipping` disabled
+
+### Invoice Template
+
+These parameters control the titles of the fields on the invoice template.
+
+|Parameter|Default Value
+|:--------|:------------
+header|INVOICE
+to_title|Client
+invoice_number_title|Invoice Number
+date_title|Date
+payment_terms_title|Payment Terms
+due_date_title|Due Date
+quantity_header|Quantity
+item_header|Item
+unit_cost_header|Rate
+amount_header|Amount
+subtotal_title|Subtotal
+discounts_title|Discounts
+tax_title|Tax
+shipping_title|Shipping
+total_title|Total
+amount_paid_title|Amount Paid
+balance_title|Balance
+terms_title|Terms
+notes_title|Notes
+
+### Invoice
+
+|Parameter|Description|Default Value
+|:--------|:----------|:------------
+logo|URL of your logo|*null*
+from|The name of your organization|*null*
+to|The entity being billed - multiple lines ok|*null*
+number|Invoice number|*null*
+purchase_order|Purchase order number|*null*
+date|Invoice date|current date
+payment_terms|Payment Terms summary (i.e. NET 30)|*null*
+due_date|Invoice due date|*null*
+items|Hash - see Line Items below|`[]`
+discounts|Subtotal discounts|0
+tax|Tax|0
+shipping|Shipping|0
+amount_paid|Amount Paid - hidden when 0|0
+notes|Notes|*null*
+terms|Terms|*null*
+
+### Line Items
+
+Line items are a hash that requires the `name` parameter to be not empty. Any or all of these parameters can be used:
+
+```json
+{
+  "name": "Gizmo",
+  "quantity": 10,
+  "unit_cost": 99.99,
+  "description": "The best gizmos there are around."
+}
 
 ## Feature Requests and Bug Reports
 
