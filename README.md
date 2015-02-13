@@ -121,7 +121,7 @@ When a value is null or zero, the field will not be shown on the invoice. The ex
 `number`|Invoice number|*null*
 `purchase_order`|Purchase order number|*null*
 `date`|Invoice date|current date
-`payment_terms`|Payment Terms summary (i.e. NET 30)|*null*
+`payment_terms`|Payment terms summary (i.e. NET 30)|*null*
 `due_date`|Invoice due date|*null*
 `items`|Array of hashes - see Line Items below|`[]`
 `discounts`|Subtotal discounts|0
