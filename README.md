@@ -124,10 +124,10 @@ When a value is null or zero, the field will not be shown on the invoice. The ex
 `payment_terms`|Payment terms summary (i.e. NET 30)|*null*
 `due_date`|Invoice due date|*null*
 `items`|Array of hashes - see Line Items below|`[]`
-`discounts`|Subtotal discounts|0
-`tax`|Tax|0
-`shipping`|Shipping|0
-`amount_paid`|Amount paid|0
+`discounts`|Subtotal discounts - numbers only|0
+`tax`|Tax - numbers only|0
+`shipping`|Shipping - numbers only|0
+`amount_paid`|Amount paid - numbers only|0
 `notes`|Notes - any extra information not included elsewhere|*null*
 `terms`|Terms and conditions - all the details|*null*
 
