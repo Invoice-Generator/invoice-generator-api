@@ -3,7 +3,7 @@ For those times when you just need an invoice
 
 ## About
 
-We created a simple API at Invoiced to generate invoice PDFs on the fly. This service has been used internally by us for some time. We believe this could be useful for other projects as well.
+We created a simple API at Invoiced to generate invoice PDFs on the fly. This service has been used internally by us for some time. We believe this could be useful for other projects as well, such as, generating an invoice from a webhook off a billing system like Stripe or as part of a batch job.
 
 The API only has a single endpoint that returns a PDF. We don't store any of your invoice data.
 
@@ -57,8 +57,8 @@ Here's a simple cURL example for generating invoices with VAT:
 
 ```
 curl https://invoice-generator.com \
-  -d from='Invoiced, Inc.\nVAT ID: 1234' \
-  -d to="Jared\nVAT ID: 4567" \
+  -d from='Invoiced, Inc.%0AVAT ID: 1234' \
+  -d to='Jared%0AVAT ID: 4567' \
   -d logo='https://invoiced.com/img/logo-invoice.png' \
   -d number=1 \
   -d date='Feb 9, 2015' \
@@ -128,8 +128,8 @@ When a value is null or zero, the field will not be shown on the invoice. The ex
 `tax`|Tax|0
 `shipping`|Shipping|0
 `amount_paid`|Amount Paid|0
-`notes`|Notes|*null*
-`terms`|Terms|*null*
+`notes`|Notes - any extra information not included elsewhere|*null*
+`terms`|Terms and conditions - all the details|*null*
 
 ### Invoice Fields
 
