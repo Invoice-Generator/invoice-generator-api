@@ -75,7 +75,7 @@ TODO
 |Parameter|Description|Default Value
 |:--------|:----------|:------------
 `currency`|ISO 4217 3-digit currency code|USD
-`fields`|Hash - see Invoice Fields below|`{"tax":"%","discounts":false,"shipping":false}
+`fields`|Hash - see Invoice Fields below|`{"tax":"%","discounts":false,"shipping":false}`
 
 ### Invoice Template
 
