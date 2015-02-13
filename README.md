@@ -137,14 +137,14 @@ The `fields` has toggles the `discounts`, `tax`, and `shipping`. The fields are 
 
 ```json
 {
-  [...]
   "fields": {
     "tax": "%",
     "discounts": false,
     "shipping": true
   },
   "tax": 7,
-  "shipping": 15
+  "shipping": 15,
+  [..rest of invoice..]
 }
 ```
 
