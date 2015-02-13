@@ -3,7 +3,7 @@ For those times when you just need an invoice
 
 ## About
 
-We created a simple API at Invoiced to generate invoice PDFs on the fly. This service has been used internally by us for some time. We believe this could be useful for other projects as well, such as, generating an invoice from a webhook off a billing system like Stripe or as part of a batch job.
+We created a simple API at Invoiced to generate invoice PDFs on the fly. This service has been used internally by us for some time. We believe this could be helpful in your project as well. The most obvious use case to us is generating an invoice from a webhook off a SaaS billing system like Stripe.
 
 The API only has a single endpoint that returns a PDF. We don't store any of your invoice data.
 
