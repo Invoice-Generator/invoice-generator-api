@@ -149,14 +149,23 @@ The `fields` has toggles the `discounts`, `tax`, and `shipping`. The fields are 
 
 ### Line Items
 
-Line items are a hash that requires the `name` parameter to be not empty. Any or all of these parameters can be used:
+Line items are represented as an array of hashes. Here's an example:
 
 ```json
 {
-  "name": "Gizmo",
-  "quantity": 10,
-  "unit_cost": 99.99,
-  "description": "The best gizmos there are around."
+  "items": [
+    {
+      "name": "Gizmo",
+      "quantity": 10,
+      "unit_cost": 99.99,
+      "description": "The best gizmos there are around."
+    }
+    {
+      "name": "Gizmo v2",
+      "quantity": 5,
+      "unit_cost": 199.99
+    }
+  ]
 }
 ```
 
