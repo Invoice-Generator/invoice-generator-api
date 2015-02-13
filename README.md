@@ -74,8 +74,8 @@ TODO
 
 |Parameter|Description|Default Value
 |:--------|:----------|:------------
-currency|ISO 4217 3-digit code|USD
-fields|Hash that supports `discounts`, `tax, and `shipping` - *false* is disabled, *true* is flat rate, `%` is percentage rate|`tax` = `%`, `discounts` and `shipping` disabled
+`currency`|ISO 4217 3-digit currency code|USD
+`fields`|Hash - see Invoice Fields below|`{"tax":"%","discounts":false,"shipping":false}
 
 ### Invoice Template
 
@@ -83,45 +83,59 @@ These parameters control the titles of the fields on the invoice template.
 
 |Parameter|Default Value
 |:--------|:------------
-header|INVOICE
-to_title|Client
-invoice_number_title|Invoice Number
-date_title|Date
-payment_terms_title|Payment Terms
-due_date_title|Due Date
-quantity_header|Quantity
-item_header|Item
-unit_cost_header|Rate
-amount_header|Amount
-subtotal_title|Subtotal
-discounts_title|Discounts
-tax_title|Tax
-shipping_title|Shipping
-total_title|Total
-amount_paid_title|Amount Paid
-balance_title|Balance
-terms_title|Terms
-notes_title|Notes
+`header`|INVOICE
+`to_title`|Client
+`invoice_number_title`|Invoice Number
+`date_title`|Date
+`payment_terms_title`|Payment Terms
+`due_date_title`|Due Date
+`quantity_header`|Quantity
+`item_header`|Item
+`unit_cost_header`|Rate
+`amount_header`|Amount
+`subtotal_title`|Subtotal
+`discounts_title`|Discounts
+`tax_title`|Tax
+`shipping_title`|Shipping
+`total_title`|Total
+`amount_paid_title`|Amount Paid
+`balance_title`|Balance
+`terms_title`|Terms
+`notes_title`|Notes
 
 ### Invoice
 
+When a value is null or zero, the field will not be shown on the invoice. The exception to this are the required fields `from`, `to`, `date`, and `items`.
+
 |Parameter|Description|Default Value
 |:--------|:----------|:------------
-logo|URL of your logo|*null*
-from|The name of your organization|*null*
-to|The entity being billed - multiple lines ok|*null*
-number|Invoice number|*null*
-purchase_order|Purchase order number|*null*
-date|Invoice date|current date
-payment_terms|Payment Terms summary (i.e. NET 30)|*null*
-due_date|Invoice due date|*null*
-items|Hash - see Line Items below|`[]`
-discounts|Subtotal discounts|0
-tax|Tax|0
-shipping|Shipping|0
-amount_paid|Amount Paid - hidden when 0|0
-notes|Notes|*null*
-terms|Terms|*null*
+`logo`|URL of your logo|*null*
+`from`|The name of your organization|*null*
+`to`|The entity being billed - multiple lines ok|*null*
+`number`|Invoice number|*null*
+`purchase_order`|Purchase order number|*null*
+`date`|Invoice date|current date
+`payment_terms`|Payment Terms summary (i.e. NET 30)|*null*
+`due_date`|Invoice due date|*null*
+`items`|Array of hashes - see Line Items below|`[]`
+`discounts`|Subtotal discounts|0
+`tax`|Tax|0
+`shipping`|Shipping|0
+`amount_paid`|Amount Paid|0
+`notes`|Notes|*null*
+`terms`|Terms|*null*
+
+### Invoice Fields
+
+Invoice fields can be added at the end of the invoice. We support discounts, tax, and shipping. The fields are expressed as a hash with values that can be either `%`, `true`, or `false`.
+
+```json
+{
+  "tax": "%",
+  "discounts": false,
+  "shipping": true
+}
+```
 
 ### Line Items
 
@@ -141,6 +155,6 @@ We would love to hear your thoughts! You can [create an issue](https://github.co
 
 ## Terms of Use and Privacy Policy
 
-Invoice-generator.com (a service of Invoiced) does not store any of your information on its servers. You may use documents generated from our service for any purpose, including commercially. The functionality on invoice-generator.com is provided "as is" with no expressed or implied warranties. By using invoice-generator.com you agree to not hold its owner liable for any consequential or incidental damages.
+Invoice-generator.com (a service of Invoiced) does not store any of your information on its servers. The functionality on invoice-generator.com is provided "as is" with no expressed or implied warranties. By using invoice-generator.com you agree to not hold its owner liable for any consequential or incidental damages.
 
-The service itself including the use of the Invoiced name, invoice template, domain names and other distinctive brand features are protected by copyright and other laws: © Invoiced. All rights reserved.
+We place no restrictions how you use invoices generated from our service. The service itself including the use of the Invoiced name, invoice template, domain names and other distinctive brand features are protected by copyright and other laws: © Invoiced. All rights reserved.
