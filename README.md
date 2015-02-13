@@ -148,6 +148,7 @@ Line items are a hash that requires the `name` parameter to be not empty. Any or
   "unit_cost": 99.99,
   "description": "The best gizmos there are around."
 }
+```
 
 ## Feature Requests and Bug Reports
 
