@@ -133,7 +133,7 @@ When a value is null or zero, the field will not be shown on the invoice. The ex
 
 ### Invoice Fields
 
-The `fields` has toggles the `discounts`, `tax`, and `shipping`. The fields are expressed as a hash with values that can be either `%`, `true`, or `false`. For example to use a tax and shipping rate:
+The `fields` has toggles the `discounts`, `tax`, and `shipping`. The fields are expressed as a hash with values that can be either `%`, `true`, or `false`. For example to use a tax and shipping rate you would add this to your invoice:
 
 ```json
 {
@@ -143,8 +143,7 @@ The `fields` has toggles the `discounts`, `tax`, and `shipping`. The fields are 
     "shipping": true
   },
   "tax": 7,
-  "shipping": 15,
-  [..rest of invoice..]
+  "shipping": 15
 }
 ```
 
