@@ -28,7 +28,7 @@ The API is rate limited, however, it should be sufficient for a reasonable amoun
 curl https://invoice-generator.com \
   -d from='Invoiced, Inc.' \
   -d to=Parag \
-  -d logo='https://invoiced.com/img/header-logo.png' \
+  -d logo='https://invoiced.com/img/logo-invoice.png' \
   -d number=1 \
   -d date='Feb 9, 2015' \
   -d due_date='Feb 16, 2015' \
@@ -36,7 +36,7 @@ curl https://invoice-generator.com \
   -d items[0][quantity]=1 \
   -d items[0][unit_cost]=99 \
   -d notes='Thanks for being an awesome customer!' \
-  -d terms='No need to submit payment. You will be auto-billed for this invoice.' \
+  -d terms='Please pay by the due date.' \
 > invoice.pdf
 ```
 
@@ -46,19 +46,8 @@ JSON input is also accepted with the `Content-Type` header set to `application/j
 
 ```
 curl https://invoice-generator.com \
-  -H Content-Type=application/json \
-
-  -d from='Invoiced, Inc.' \
-  -d to=Parag \
-  -d logo='https://invoiced.com/img/header-logo.png' \
-  -d number=1 \
-  -d date='Feb 9, 2015' \
-  -d due_date='Feb 16, 2015' \
-  -d items[0][name]='Starter plan monthly' \
-  -d items[0][quantity]=1 \
-  -d items[0][unit_cost]=99 \
-  -d notes='Thanks for being an awesome customer!' \
-  -d terms='No need to submit payment. You will be auto-billed for this invoice.' \
+  -H 'Content-Type: application/json' \
+  -d '{"from":"Invoiced, Inc.","to":"Parag","logo":"https://invoiced.com/img/logo-invoice.png","number":1,"items":[{"name":"Starter plan","quantity":1,"unit_cost":99}],"notes":"Thanks for your business!"}' \
 > invoice.pdf
 ```
 
@@ -66,7 +55,24 @@ curl https://invoice-generator.com \
 
 Here's a simple cURL example for generating invoices with VAT:
 
-TODO
+```
+curl https://invoice-generator.com \
+  -d from='Invoiced, Inc.\nVAT ID: 1234' \
+  -d to="Jared\nVAT ID: 4567" \
+  -d logo='https://invoiced.com/img/logo-invoice.png' \
+  -d number=1 \
+  -d date='Feb 9, 2015' \
+  -d payment_terms='Auto-Billed - Do Not Pay' \
+  -d items[0][name]='Starter Plan Monthly' \
+  -d items[0][quantity]=1 \
+  -d items[0][unit_cost]=99 \
+  -d tax_title='VAT' \
+  -d fields[tax]='%' \
+  -d tax='8' \
+  -d notes='Thanks for being an awesome customer!' \
+  -d terms='No need to submit payment. You will be auto-billed for this invoice.' \
+> invoice.vat.pdf
+```
 
 ## Parameter Reference
 
