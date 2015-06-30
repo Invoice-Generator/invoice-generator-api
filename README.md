@@ -19,6 +19,7 @@ The API is rate limited, however, it should be sufficient for a reasonable amoun
 
 - Go: [generate invoices programatically](https://github.com/Invoiced/go-invoice-generator-connector)
 - Ruby: [generate invoices from Stripe webhooks](https://github.com/Invoiced/ruby-stripe-invoice-generator)
+- Ruby: [invoices in under 5 minutes using HTTParty gem](https://gelato.io/blog/minimum-viable-ruby-api-client-with-invoiced-and-httparty)
 
 ## Examples
 
