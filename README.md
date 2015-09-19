@@ -13,7 +13,7 @@ The API only has a single endpoint that returns a PDF. We don't store any of you
 
 ### Rate Limiting
 
-The API is rate limited, however, it should be sufficient for a reasonable amount of testing and use. If you plan to use this in production let's talk at hello@invoiced.com.
+The API is rate limited, however, it should be sufficient for a reasonable amount of testing and use. If you plan to use this in production at high volumes then let's talk at hello@invoiced.com.
 
 ## Sample Projects using API
 
