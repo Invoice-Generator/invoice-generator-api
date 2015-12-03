@@ -15,12 +15,13 @@ The API only has a single endpoint that returns a PDF. We don't store any of you
 
 The API is rate limited, however, it should be sufficient for a reasonable amount of testing and use. If you plan to use this in production at high volumes then let's talk at hello@invoiced.com.
 
-## Sample Projects using API
+## Sample Projects
 
-- Go: [generate invoices programatically](https://github.com/Invoiced/go-invoice-generator-connector)
+- Go: [generate invoices programmatically](https://github.com/Invoiced/go-invoice-generator-connector)
 - Ruby: [generate invoices from Stripe webhooks](https://github.com/Invoiced/ruby-stripe-invoice-generator)
 - Ruby: [invoices in under 5 minutes using HTTParty gem](https://gelato.io/blog/minimum-viable-ruby-api-client-with-invoiced-and-httparty)
 - Node.js: [invoice-generator.js](https://github.com/Invoiced/invoice-generator.js)
+- PHP: [generate invoices programmatically](https://github.com/concept-core/Invoiced)
 
 ## Examples
 
