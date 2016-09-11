@@ -11,10 +11,6 @@ The API only has a single endpoint that returns a PDF. We don't store any of you
 
 ``https://invoice-generator.com``
 
-### Rate Limiting
-
-The API is rate limited, however, it should be sufficient for a reasonable amount of testing and use. If you plan to use this in production at high volumes then let's talk at hello@invoiced.com.
-
 ## Sample Projects
 
 - Go: [generate invoices programmatically](https://github.com/Invoiced/go-invoice-generator-connector)
@@ -172,6 +168,10 @@ Line items are represented as an array of hashes. Here's an example:
   ]
 }
 ```
+
+## Rate Limiting
+
+The invoice-generator.com API is rate limited. With almost every use case this should not be an issue. If an API call does trigger rate limiting then we will respond with a `429` status code to let you know to try generating your invoice again later. If you frequently run into these limits then you might also consider using our paid service at [invoiced.com](https://invoiced.com).
 
 ## Feature Requests and Bug Reports
 
