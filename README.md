@@ -25,17 +25,17 @@ The API only has a single endpoint that returns a PDF. We don't store any of you
 
 ```
 curl https://invoice-generator.com \
-  -d from='Invoiced, Inc.' \
+  -d from="Invoiced, Inc." \
   -d to=Parag \
-  -d logo='https://invoiced.com/img/logo-invoice.png' \
+  -d logo="https://invoiced.com/img/logo-invoice.png" \
   -d number=1 \
-  -d date='Feb 9, 2015' \
-  -d due_date='Feb 16, 2015' \
-  -d items[0][name]='Starter plan monthly' \
+  -d date="Feb 9, 2015" \
+  -d due_date="Feb 16, 2015" \
+  -d items[0][name]="Starter plan monthly" \
   -d items[0][quantity]=1 \
   -d items[0][unit_cost]=99 \
-  -d notes='Thanks for being an awesome customer!' \
-  -d terms='Please pay by the due date.' \
+  -d notes="Thanks for being an awesome customer!" \
+  -d terms="Please pay by the due date." \
 > invoice.pdf
 ```
 
@@ -45,7 +45,7 @@ JSON input is also accepted with the `Content-Type` header set to `application/j
 
 ```
 curl https://invoice-generator.com \
-  -H 'Content-Type: application/json' \
+  -H "Content-Type: application/json" \
   -d '{"from":"Invoiced, Inc.","to":"Parag","logo":"https://invoiced.com/img/logo-invoice.png","number":1,"items":[{"name":"Starter plan","quantity":1,"unit_cost":99}],"notes":"Thanks for your business!"}' \
 > invoice.pdf
 ```
@@ -56,20 +56,20 @@ Here's a simple cURL example for generating invoices with VAT:
 
 ```
 curl https://invoice-generator.com \
-  -d from='Invoiced, Inc.%0AVAT ID: 1234' \
-  -d to='Jared%0AVAT ID: 4567' \
-  -d logo='https://invoiced.com/img/logo-invoice.png' \
+  -d from="Invoiced, Inc.%0AVAT ID: 1234" \
+  -d to="Jared%0AVAT ID: 4567" \
+  -d logo="https://invoiced.com/img/logo-invoice.png" \
   -d number=1 \
-  -d date='Feb 9, 2015' \
-  -d payment_terms='Charged - Do Not Pay' \
-  -d items[0][name]='Starter Plan Monthly' \
+  -d date="Feb 9, 2015" \
+  -d payment_terms="Charged - Do Not Pay" \
+  -d items[0][name]="Starter Plan Monthly" \
   -d items[0][quantity]=1 \
   -d items[0][unit_cost]=99 \
-  -d tax_title='VAT' \
-  -d fields[tax]='%' \
+  -d tax_title="VAT" \
+  -d fields[tax]="%" \
   -d tax=8 \
-  -d notes='Thanks for being an awesome customer!' \
-  -d terms='No need to submit payment. You will be auto-billed for this invoice.' \
+  -d notes="Thanks for being an awesome customer!" \
+  -d terms="No need to submit payment. You will be auto-billed for this invoice." \
 > invoice.vat.pdf
 ```
 
