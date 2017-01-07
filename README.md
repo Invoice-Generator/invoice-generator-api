@@ -67,7 +67,7 @@ curl https://invoice-generator.com \
   -d items[0][unit_cost]=99 \
   -d tax_title='VAT' \
   -d fields[tax]='%' \
-  -d tax='8' \
+  -d tax=8 \
   -d notes='Thanks for being an awesome customer!' \
   -d terms='No need to submit payment. You will be auto-billed for this invoice.' \
 > invoice.vat.pdf
@@ -80,7 +80,7 @@ curl https://invoice-generator.com \
 |Parameter|Description|Default Value
 |:--------|:----------|:------------
 `currency`|ISO 4217 3-digit currency code|USD
-`fields`|Hash - see Invoice Fields below|`{"tax":"%","discounts":false,"shipping":false}`
+`fields`|Object - see Invoice Fields below|`{"tax":"%","discounts":false,"shipping":false}`
 
 ### Invoice Template
 
@@ -123,7 +123,7 @@ When a value is null or zero, the field will not be shown on the invoice. The ex
 `date`|Invoice date|current date
 `payment_terms`|Payment terms summary (i.e. NET 30)|*null*
 `due_date`|Invoice due date|*null*
-`items`|Array of hashes - see Line Items below|`[]`
+`items`|Array of objects - see Line Items below|`[]`
 `discounts`|Subtotal discounts - numbers only|0
 `tax`|Tax - numbers only|0
 `shipping`|Shipping - numbers only|0
@@ -133,7 +133,7 @@ When a value is null or zero, the field will not be shown on the invoice. The ex
 
 ### Invoice Fields
 
-The `fields` hash toggles the `discounts`, `tax`, and `shipping` fields. Each field can have a value of `%`, `true`, or `false`. For example to add a percent tax rate and flat shipping to your invoice you would send this:
+The `fields` object toggles the `discounts`, `tax`, and `shipping` fields. Each field can have a value of `%`, `true`, or `false`. For example to add a percent tax rate and flat shipping to your invoice you would send this:
 
 ```json
 {
@@ -149,7 +149,7 @@ The `fields` hash toggles the `discounts`, `tax`, and `shipping` fields. Each fi
 
 ### Line Items
 
-Line items are represented as an array of hashes. Here's an example:
+Line items are represented as an array of objects. Here's an example:
 
 ```json
 {
@@ -181,4 +181,4 @@ We would love to hear your thoughts! You can [create an issue](https://github.co
 
 Invoice-generator.com (a service of Invoiced) does not store any of your information on its servers. The functionality on invoice-generator.com is provided "as is" with no expressed or implied warranties. By using invoice-generator.com you agree to not hold its owner liable for any consequential or incidental damages.
 
-We place no restrictions how you use invoices generated from our service. The service itself including the use of the Invoiced name, invoice template, domain names and other distinctive brand features are protected by copyright and other laws: © Invoiced. All rights reserved.
+We place no restrictions on how you use invoices generated from our service. The service itself including the use of the Invoiced name, invoice template, domain names and other distinctive brand features are protected by copyright and other laws: © Invoiced. All rights reserved.
