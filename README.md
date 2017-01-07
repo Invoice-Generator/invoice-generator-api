@@ -61,7 +61,7 @@ curl https://invoice-generator.com \
   -d logo='https://invoiced.com/img/logo-invoice.png' \
   -d number=1 \
   -d date='Feb 9, 2015' \
-  -d payment_terms='Auto-Billed - Do Not Pay' \
+  -d payment_terms='Charged - Do Not Pay' \
   -d items[0][name]='Starter Plan Monthly' \
   -d items[0][quantity]=1 \
   -d items[0][unit_cost]=99 \
