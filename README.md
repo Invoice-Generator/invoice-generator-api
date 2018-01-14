@@ -90,7 +90,7 @@ These parameters control the titles of the fields on the invoice template.
 |:--------|:------------
 `header`|INVOICE
 `to_title`|Client
-`invoice_number_title`|Invoice Number
+`invoice_number_title`|#
 `date_title`|Date
 `payment_terms_title`|Payment Terms
 `due_date_title`|Due Date
