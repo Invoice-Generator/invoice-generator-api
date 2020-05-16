@@ -7,6 +7,12 @@ We created a simple API at Invoiced to generate invoice PDFs on the fly. This se
 
 The API only has a single endpoint that returns a PDF. We don't store any of your invoice data.
 
+### Use Cases
+- Creating invoices for VAT compliance
+- Generate a PDF of an invoice that you have the details to (recipieint, line items, etc)
+- Produce invoices for B2B buyers from an order or receipt
+- Selling products or services on credit terms
+
 ### Endpoint
 
 ```
@@ -19,12 +25,6 @@ https://invoice-generator.com
 - Ruby: [generate invoices from Stripe webhooks](https://github.com/Invoiced/ruby-stripe-invoice-generator)
 - Node.js: [invoice-generator.js](https://github.com/Invoiced/invoice-generator.js)
 - PHP: [generate invoices programmatically](https://github.com/concept-core/Invoiced)
-
-## Use Cases
-- Creating invoices for VAT compliance
-- Generate a PDF of an invoice that you have the details to (recipieint, line items, etc)
-- Produce invoices for B2B buyers from an order or receipt
-- Selling products or services on credit terms
 
 ## Examples
 
