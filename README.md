@@ -1,6 +1,14 @@
 # Invoice Generator API
 Simple HTTP API to create invoice PDFs.
 
+- [About](#about)
+- [Getting Started](#getting-started)
+- [Sample Projects](#sample-projects)
+- [API Reference](#api-reference)
+- [Rate Limiting](#rate-limiting)
+- [Feature Requests and Bug Reports](#feature-requests-and-bug-reports)
+- [Terms of Use and Privacy Policy](#terms-of-use-and-privacy-policy)
+
 ## About
 
 We created a simple API at Invoiced to generate invoice PDFs on the fly. This service has been used internally by us for some time. We believe this could be helpful in your project as well.
@@ -18,13 +26,6 @@ The API only has a single endpoint that returns a PDF. We don't store any of you
 ```
 https://invoice-generator.com
 ```
-
-## Sample Projects
-
-- Go: [generate invoices programmatically](https://github.com/Invoiced/go-invoice-generator-connector)
-- Ruby: [generate invoices from Stripe webhooks](https://github.com/Invoiced/ruby-stripe-invoice-generator)
-- Node.js: [invoice-generator.js](https://github.com/Invoiced/invoice-generator.js)
-- PHP: [generate invoices programmatically](https://github.com/concept-core/Invoiced)
 
 ## Examples
 
@@ -100,6 +101,24 @@ curl https://invoice-generator.com \
 > invoice.pdf
 ```
 
+### Custom Fields
+
+```
+curl https://invoice-generator.com \
+  -d from="Invoiced, Inc." \
+  -d to="My Customer" \
+  -d ship_to="Shipping Address" \
+  -d logo="https://invoiced.com/img/logo-invoice.png" \
+  -d number=1 \
+  -d date="Feb 9, 2015" \
+  -d custom_fields[0][name]="My Custom Field" \
+  -d custom_fields[0][value]="Some Value" \
+  -d items[0][name]="Starter Plan Monthly" \
+  -d items[0][quantity]=1 \
+  -d items[0][unit_cost]=99 \
+> invoice.custom_fields.pdf
+```
+
 #### Supported Languages
 
 We currently have translations available in:
@@ -108,7 +127,14 @@ We currently have translations available in:
 - German
 - Spanish
 
-## Parameter Reference
+## Sample Projects
+
+- Go: [generate invoices programmatically](https://github.com/Invoiced/go-invoice-generator-connector)
+- Ruby: [generate invoices from Stripe webhooks](https://github.com/Invoiced/ruby-stripe-invoice-generator)
+- Node.js: [invoice-generator.js](https://github.com/Invoiced/invoice-generator.js)
+- PHP: [generate invoices programmatically](https://github.com/concept-core/Invoiced)
+
+## API Reference
 
 ### Invoice
 
@@ -117,16 +143,17 @@ When a value is null or zero, the field will not be shown on the invoice. The ex
 |Parameter|Description|Default Value
 |:--------|:----------|:------------
 `logo`|URL of your logo|*null*
-`from`|The name of your organization|*null*
-`to`|The entity being billed - multiple lines ok|*null*
+`from`|Your organization billing address and contact info|*null*
+`to`|Entity being billed - multiple lines ok|*null*
+`ship_to`|Shipping address - multiple lines ok|*null*
 `number`|Invoice number|*null*
 `currency`|ISO 4217 3-digit currency code|USD
-`purchase_order`|Purchase order number|*null*
+`custom_fields`|Array of objects - see [Custom Fields](#custom-fields) below|*[]*
 `date`|Invoice date|current date
 `payment_terms`|Payment terms summary (i.e. NET 30)|*null*
 `due_date`|Invoice due date|*null*
-`items`|Array of objects - see Line Items below|`[]`
-`fields`|Object - see Subtotal Lines below|`{"tax":"%","discounts":false,"shipping":false}`
+`items`|Array of objects - see [Line Items](#line-items) below|`[]`
+`fields`|Object - see [Subtotal Lines](#subtotal-lines) below|`{"tax":"%","discounts":false,"shipping":false}`
 `discounts`|Subtotal discounts - numbers only|0
 `tax`|Tax - numbers only|0
 `shipping`|Shipping - numbers only|0
@@ -172,6 +199,25 @@ The `fields` object toggles the `discounts`, `tax`, and `shipping` subtotal line
 }
 ```
 
+### Custom Fields
+
+Custom fields allow you to add additional fields to the invoice details in the top-right. Here's an example:
+
+```json
+{
+  "custom_fields": [
+    {
+      "name": "Gizmo",
+      "value": "PO-1234"
+    }
+    {
+      "name": "Account Number",
+      "value": "CUST-456"
+    }
+  ]
+}
+```
+
 ### Invoice Template
 
 These parameters control the titles of the fields on the invoice template.
@@ -179,7 +225,8 @@ These parameters control the titles of the fields on the invoice template.
 |Parameter|Default Value
 |:--------|:------------
 `header`|INVOICE
-`to_title`|Client
+`to_title`|Bill To
+`ship_to_title`|Ship To
 `invoice_number_title`|#
 `date_title`|Date
 `payment_terms_title`|Payment Terms
