@@ -6,7 +6,7 @@ Simple HTTP API to create invoice PDFs.
 - [Sample Projects](#sample-projects)
 - [API Reference](#api-reference)
 - [Rate Limiting](#rate-limiting)
-- [Feature Requests and Bug Reports](#feature-requests-and-bug-reports)
+- [Support](#support)
 - [Terms of Use and Privacy Policy](#terms-of-use-and-privacy-policy)
 
 ## About
@@ -127,7 +127,7 @@ We currently have translations available in:
 - German
 - Spanish
 
-## Sample Projects
+### Sample Projects
 
 - Go: [generate invoices programmatically](https://github.com/Invoiced/go-invoice-generator-connector)
 - Ruby: [generate invoices from Stripe webhooks](https://github.com/Invoiced/ruby-stripe-invoice-generator)
@@ -250,9 +250,9 @@ These parameters control the titles of the fields on the invoice template.
 
 The invoice-generator.com API is rate limited. With almost every use case this should not be an issue. If an API call does trigger rate limiting then we will respond with a `429` status code to let you know to try generating your invoice again later. If you frequently run into these limits then you might also consider using our paid service at [invoiced.com](https://invoiced.com).
 
-## Feature Requests and Bug Reports
+## Support
 
-We would love to hear your thoughts! You can [create an issue](https://github.com/Invoiced/invoice-generator-api/issues) on GitHub for any issues you encounter or feature requests. If the matter is more private you can reach us at hello@invoiced.com.
+Have a feature request or bug report? We would love to hear your thoughts! You can [create an issue](https://github.com/Invoiced/invoice-generator-api/issues) on GitHub for any issues you encounter or feature requests. If the matter is more private you can reach us at hello@invoiced.com.
 
 ## Terms of Use and Privacy Policy
 
