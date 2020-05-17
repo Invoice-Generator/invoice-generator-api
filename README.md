@@ -1,5 +1,5 @@
 # Invoice Generator API
-For those times when you just need an invoice
+Simple HTTP API to create invoice PDFs.
 
 ## About
 
@@ -79,6 +79,34 @@ curl https://invoice-generator.com \
   -d terms="No need to submit payment. You will be auto-billed for this invoice." \
 > invoice.vat.pdf
 ```
+
+### Localization
+
+It is possible to change the localization used to generate the invoice by supplying a locale in the `Accept-Language` header. The default locale is `en-US`.
+
+```
+curl https://invoice-generator.com \
+  -H "Accept-Language: fr-FR" \
+  -d from="Invoiced, Inc." \
+  -d to=Acme Corp. \
+  -d logo="https://invoiced.com/img/logo-invoice.png" \
+  -d number=1 \
+  -d currency=eur \
+  -d date="Feb 9, 2015" \
+  -d due_date="Feb 16, 2015" \
+  -d items[0][name]="Starter plan monthly" \
+  -d items[0][quantity]=1 \
+  -d items[0][unit_cost]=99 \
+> invoice.pdf
+```
+
+#### Supported Languages
+
+We currently have translations available in:
+- English
+- French
+- German
+- Spanish
 
 ## Parameter Reference
 
