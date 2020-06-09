@@ -34,7 +34,7 @@ https://invoice-generator.com
 ```
 curl https://invoice-generator.com \
   -d from="Invoiced, Inc." \
-  -d to=Parag \
+  -d to="Parag" \
   -d logo="https://invoiced.com/img/logo-invoice.png" \
   -d number=1 \
   -d date="Feb 9, 2015" \
@@ -89,7 +89,7 @@ It is possible to change the localization used to generate the invoice by supply
 curl https://invoice-generator.com \
   -H "Accept-Language: fr-FR" \
   -d from="Invoiced, Inc." \
-  -d to=Acme Corp. \
+  -d to="Acme Corp." \
   -d logo="https://invoiced.com/img/logo-invoice.png" \
   -d number=1 \
   -d currency=eur \
@@ -126,6 +126,7 @@ We currently have translations available in:
 - French
 - German
 - Spanish
+- Thai
 
 ### Sample Projects
 
