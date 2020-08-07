@@ -133,7 +133,7 @@ We currently have translations available in:
 - Go: [generate invoices programmatically](https://github.com/Invoiced/go-invoice-generator-connector)
 - Ruby: [generate invoices from Stripe webhooks](https://github.com/Invoiced/ruby-stripe-invoice-generator)
 - Node.js: [invoice-generator.js](https://github.com/Invoiced/invoice-generator.js)
-- PHP: [generate invoices programmatically](https://github.com/concept-core/Invoiced)
+- PHP: [generate invoices programmatically](https://github.com/Invoiced/invoiced-php)
 
 ## API Reference
 
